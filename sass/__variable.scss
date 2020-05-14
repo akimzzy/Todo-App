@@ -1,0 +1,25 @@
+// Colors
+:root {
+    --purple: #52154E; 
+    --blue: #111344; 
+    --white: #ffffff;
+    --grey: #d1cece;
+    --pinch: #ffdff8;
+    --shadow: 0 .4rem .5rem rgba(0,0,0, .3);
+    
+}
+
+$purple: #52154E; 
+$blue: #111344; 
+$white: #ffffff;
+$grey: #eeeeee;
+$pinch: #ffdff8;
+$shadow: 0 .4rem .5rem rgba(0,0,0, .3);
+
+// MIXINS 
+
+@mixin list {
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+

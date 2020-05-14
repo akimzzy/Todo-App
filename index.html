@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;700&display=swap" rel="stylesheet">   <link rel="icon" type="image/png" sizes="32x32" href="./images/Coolzey.png">
+  <link rel="stylesheet" href="css/style.css">
+  
+  <title>Todo App</title>
+</head>
+<body>
+  <img src="./images/hamburger.svg" class="hamburger" alt="hamburger">
+  <div class="theme">
+    <input type="checkbox">
+    <div class="slider"></div>
+  </div>
+  <div class="list">
+    <div class="list__input">
+      <input type="text" id="inputList">
+      <button><img src="./images/add.svg" alt="Add"></button>
+    </div>
+    <div class="list__listBox">
+      <h2 class="list__heading">My list</h2>
+      <div class="list__container">
+
+        <!-- <div class="list__item selectedList">
+          <div class="list__name">Youtube</div>
+          <div class="list__date">05/05/2020</div>
+          <button>
+            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" class="trash" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512"><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg>
+          </button> 
+        </div> -->
+        
+      </div>
+    </div>
+  </div>
+  <div class="task">
+    <div class="task__container">
+      <div class="task__top">
+        <h1 class="task__title"></h1>
+        <div class="task__input">
+          <input type="text" placeholder="Add new task" id="inputTask">
+          <button><img src="./images/add.svg" alt="Add"></button>
+        </div>
+        <select name="filter" id="filter">
+          <option value="All">All</option>
+          <option value="Completed">Completed</option>
+          <option value="Pending">Pending</option>
+        </select>
+      </div>
+      <div class="task__list">
+
+        <!-- <div class="task__item">
+          <span class="task__item--name">Record todo list video</span>
+          <span class="task__item--date">03/04/2020 | 15:03</span>
+          <span class="task__item--checkboxContainer">
+            <input type="checkbox">
+            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="check" class="task__checked" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="green" d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path></svg>
+          </span>
+          <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash" class="task__trash" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="red" d="M432 32H312l-9.4-18.7A24 24 0 0 0 281.1 0H166.8a23.72 23.72 0 0 0-21.4 13.3L136 32H16A16 16 0 0 0 0 48v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16V48a16 16 0 0 0-16-16zM53.2 467a48 48 0 0 0 47.9 45h245.8a48 48 0 0 0 47.9-45L416 128H32z"></path></svg>
+        </div> -->
+        
+      </div>
+    </div>
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenLite.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/plugins/CSSPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TimelineLite.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

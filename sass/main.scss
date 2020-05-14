@@ -1,0 +1,410 @@
+@import "__variable"; 
+
+*,
+*::before,
+*::after { 
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+
+    @media only screen and (max-width: 600px) {
+        font-size: 55%;
+    }
+
+}
+
+body {
+    font-family: 'Josefin Sans', sans-serif; 
+    display: grid;
+    grid-template-columns: 40rem 1fr;
+    position: relative;
+}
+
+.hamburger {
+    position: absolute;
+    top: 3rem;
+    left: 5%; 
+    height: 4rem;
+    width: 4rem;
+    padding: .5rem;
+    display: none;
+    background-color: $white;
+    z-index: 1000;
+
+    @media only screen and (max-width: 1000px) {
+        display: block; 
+    }
+
+}
+
+.theme {
+    position: absolute;
+    right: 5%;
+    top: 3.5rem; 
+    height: 2rem;
+    width: 4rem; 
+    border-radius: 1rem;
+    border: 1px solid var(--purple);
+    display: flex;
+    align-items: center; 
+     
+    input,
+    .slider {
+        position: absolute;
+    }
+
+    input {
+        width: 100%;
+        opacity: 0;
+
+        &:checked + .slider {
+            left: 10%;
+            background-color: $white;
+        }
+    
+    }
+
+    .slider {
+        height: 1.2rem;
+        width: 1.2rem;
+        border-radius: 50%;
+        background-color: $purple;
+        right: 10%;
+        pointer-events: none;
+        
+    }
+}
+
+.list {
+    min-height: 100vh; 
+    padding: 8rem 2rem;
+    color: var(--blue);
+    background-color: var(--grey);
+    // max-width: 70%;
+    z-index: 100;   
+
+    @media only screen and (max-width: 1000px) {
+        position: absolute;
+        min-height: 100vh;
+        max-width: 85%;
+        transform: translateX(-100%);
+        transition: all .3s ease;
+    }
+
+
+
+    &__input {
+        font-size: 1.5rem;
+        background-color: #fff;
+        display: flex;
+        margin: 0 auto;
+        width: fit-content;
+        margin-bottom: 4rem;
+
+        @media only screen and (max-width: 1000px) {
+            margin-top: 1.5rem;
+        }
+
+        input {
+            padding: .5rem;
+            border: none;
+
+            &:focus {
+                outline: none;
+                color: #aaa5a5;
+            }
+        }
+
+        button {
+            background-color: transparent;
+            border: none;
+            outline: none; 
+            cursor: pointer;
+            display: inline-block;
+            margin: .5rem;
+        }
+
+        img {width: 2rem;}
+    }
+
+    &__listBox {
+        flex: 1;
+    }
+
+    &__heading {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    } 
+
+    &__container {
+        display: grid;
+        grid-auto-rows: max-content;
+        gap: 1rem;
+    }
+
+    &__item {
+        display: flex;  
+        flex-wrap: wrap;
+        width: 100%;
+        align-items: center;
+        padding: .7rem;
+        transition: all .3s ease;
+
+        &:hover {border-left: .5rem solid var(--blue);}
+        &:hover  > button {width: auto;}
+        
+        button {
+            background-color: transparent; 
+            border: none;
+            cursor: pointer;
+            overflow: hidden;
+            width: 0;
+            transition: all .3s ease;
+
+            @media only screen and (max-width: 1000px) {
+                width: auto;
+            }
+
+            &:focus {outline: none;}
+        }
+
+        .trash {
+            height: 2rem;
+            width: 2rem;
+            pointer-events: none;
+
+            path {fill: red;}
+        }
+    }
+
+    &__name {
+        @include list;
+        flex: 1;
+        pointer-events: none;
+    }
+
+    &__date {
+        margin: .5rem;
+        pointer-events: none;
+    }
+}
+
+.selectedList {
+    box-shadow: var(--shadow); 
+    background-color: #fff;
+    color: $blue;
+}
+
+.task {
+    background-color: var(--white);
+    padding: 8rem;
+
+    @media only screen and (max-width: 1000px) {
+        grid-column: 1 / -1;
+        min-height: 100vh;
+    }
+
+    @media only screen and (max-width: 600px) {
+        padding: 6rem 4rem;
+       
+    }
+
+    &__top {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 3rem;
+        justify-content: center;
+
+        @media only screen and (max-width: 600px) {
+            margin-top: 1.5rem;
+            justify-content: center;
+        }
+
+
+        select {
+            background-color: $purple;
+            color: white; 
+            border: none;
+            padding: .5rem;
+            // margin-top: 1rem;
+            justify-self: flex-end;
+            align-self: center;
+
+            @media only screen and (max-width: 400px) {
+                // padding: .5rem;
+                // margin-top: 1rem;
+            }
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+
+    &__input {
+        display: flex;
+        justify-content: center;
+        border: 2px solid var(--purple); 
+        background-color: #fff;
+        border-radius: 1rem;
+        overflow: hidden;
+        margin: 1rem;
+
+        
+
+       
+        input {
+            padding: 1rem;
+            width: 30rem;
+            border: none;
+            @media only screen and (max-width: 600px) {
+                padding: .5rem;
+                width: 25rem;
+            }
+
+            &:focus {
+                outline: none;
+            }
+
+            &::placeholder {
+                color: $pinch;
+                text-align: center;
+            }
+        }
+
+
+        button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            margin: .5rem;
+
+            &:focus {
+                outline: none;
+            }
+             
+        }
+
+        img {
+            height: 2rem;
+        }
+    }
+
+    &__item {
+        display: grid;
+        align-items: center;
+        grid-template-columns: 1fr repeat(3, auto);
+        gap: .5rem;
+        width: 100%;
+        padding: 1rem;
+        box-shadow: var(--shadow);
+        margin-bottom: 1rem;
+        border-radius: 1rem;
+        transition: all .3s ease;
+
+        @media only screen and (max-width: 400px) {
+            text-align: center;
+            justify-content: center;
+        }
+
+        &:nth-of-type(even) {
+            background-color: $pinch;  
+        }
+        &:nth-of-type(odd) {
+            background-color: white;  
+        }
+
+        &--checkboxContainer {
+            display: inline-block;
+            position: relative;
+            padding: .7rem; 
+            border: 1px solid $purple;
+            border-radius: 5px;
+            margin: .5rem 4rem; 
+
+            @media only screen and (max-width: 400px) {
+                
+            }
+
+            input,
+            .task__checked {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);  
+            }
+
+            input {
+                opacity: 0;
+
+                &:checked + .task__checked {
+                    opacity: 1;
+                }
+            }
+            .task__checked {
+                pointer-events: none;
+                height: 2.5rem;
+                opacity: 0;
+            }
+        }
+
+        &--name {
+            flex: 1;
+            @include list;
+            color: $purple;
+
+            @media only screen and (max-width: 400px) {
+                flex: 0 0 100%;
+            }
+
+        }
+    }
+
+    &__checked {
+        height: 2rem;
+    }
+
+    &__trash {
+        height: 2rem;
+        
+        path {
+            pointer-events: none;
+        }
+    }
+
+    &__title {
+        font-size: 3rem;
+        color: var(--purple);
+        align-self: center;
+
+        @media only screen and (max-width: 1000px) {
+            flex: 0 0 100%;
+            text-align: center; 
+            margin-bottom: 2rem;
+             
+    
+        }
+    }
+}
+
+.hide {
+    transform: translateX(0);
+}
+
+.lighten {
+    opacity: .4;
+}
+
+.shrink {
+    overflow: hidden;
+    width: 0;
+    opacity: 0;
+}
