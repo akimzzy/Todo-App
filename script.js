@@ -647,7 +647,7 @@ const Task = (() => {
        
     })
     taskList.addEventListener("click", deleteTaskItem);    
-    filter.addEventListener("click", filterTask)
+    filter.addEventListener("change", filterTask)
     
 })();
 
